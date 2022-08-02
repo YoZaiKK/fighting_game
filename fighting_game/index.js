@@ -30,6 +30,7 @@ class Sprite {
         }
         this.color = color
         this.isAttacking
+        this.health = 100
     }
     draw() {
         contexto.fillStyle = this.color
@@ -150,7 +151,8 @@ function animate() {
         player.isAttacking
     ) {
         player.isAttacking = false
-        console.log('golpe nosttro');
+        enemy.health -= 20
+        document.querySelector('#enemyHealth').style.width = enemy.health + '%'
     }
     if (
         rectangularColition({
@@ -159,13 +161,14 @@ function animate() {
         }) &&
         enemy.isAttacking
     ) {
-        enemy.isAttacking = false
-        console.log('golpe enemigo');
+        enemy.isAttacking = false 
+        player.health -= 20
+        document.querySelector('#playerHealth').style.width = player.health + '%'
     }
 }
 animate()
 // Moverse a alguno de los lados
-window.addEventListener('keydown', (event) => { 
+window.addEventListener('keydown', (event) => {
     switch (event.key) {
         case 'd':
             keys.d.pressed = true

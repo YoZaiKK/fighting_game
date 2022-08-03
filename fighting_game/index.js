@@ -13,9 +13,18 @@ const background = new Sprite({
         x: 0,
         y: 0,
     },
-    imageSrc: './img/background.png' 
+    imageSrc: './img/background.png', 
 })
 
+const shop = new Sprite({
+    position: {
+        x: 610,
+        y: 128,
+    },
+    imageSrc: './img/shop.png',
+    scale: 2.75,
+    framesMax: 6,
+})
 const player = new Figther({
     position: {
         x: 0,
@@ -69,6 +78,7 @@ function animate() {
     contexto.fillStyle = 'black'
     contexto.fillRect(0, 0, canvas.width, canvas.height)
     background.update()
+    shop.update()
     player.update()
     enemy.update()
     // Movement

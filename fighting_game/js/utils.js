@@ -32,7 +32,7 @@ function determineWinner({
   }
 }
 
-let timer = 5
+let timer = 60
 let timerId
 
 function decreaseTimer() {
